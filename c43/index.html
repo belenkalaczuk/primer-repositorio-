@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi pagina web</title>
+        <link rel="stylesheet" href="style.css">
+        <!--probando mi primer slider-->
+         <!-- Intente darle stilo en css pero no lo reconocia seguro algo mal hice assi que lo envio asi pero despues lo reveo-->
+        <title>slider de Imágenes</title>
+
+        <style>
+            .slider-container {
+                width: 100%;
+                height: 400px;
+                position: relative;
+                overflow: hidden;
+            }
+    
+            .slider {
+                width: fit-content;
+                height: 100%;
+                display: flex;
+                transition: transform 0.3s ease-in-out;
+            }
+    
+            .slider img {
+                width: 100%;
+                height: 300px; /* Cambiado a 'auto' para mantener la proporción */
+                object-fit: cover;
+            }
+    
+            .slider-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 40px;
+                height: 40px;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                text-align: center;
+                line-height: 40px;
+                font-size: 24px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+    
+            .slider-button.prev {
+                left: 10px;
+            }
+    
+            .slider-button.next {
+                right: 10px;
+            }
+        </style>
+    </head> 
+
+
+    <!--cuerpo -->
+    <body>
+        <!--portada -->
+        <section class="uno">
+            <div><img src="./porta 2023.jpg" alt="" width="1300px"></div>
+            <div class="titulo"> <h1>Edicion Sk</h1></div>
+            <div class="subtitulo"><h2 class="subtitulo">Nos das tu idea, la hacemos forma</h2></div>
+            <div class="descripcion"><p>Hacemos diseños de todo tipo,<br> para todos tu eventos o necesidades. <br> consultanos 1127116530</p></div>
+            <!--slider de los trabajos realizados-->
+            <div class="slider-container">
+                <div class="slider">
+                    <img src="./15 años333.jpg" alt="" width="300px" >
+                    <img src="./bat-fiesta.jpg" alt="" width="300px">
+                    <img src="./daisy duck.jpg" alt="" width="300px">
+                    <img src="./MODELO NAHIA.jpg" alt="" width="300px"> 
+                    <img src="./libritos para colorear.jpg" alt="300px">
+                    <img src="./IMPRIMIR 2X1.jpg" alt="300px">
+                    <img src="./LLAV WINI.jpg" alt="300px">
+                    <img src="./imprimir.jpg" alt="300px">
+                    <img src="./LLAV BOCA.jpg" alt="300px">
+                </div>
+                <div class="slider-button prev" onclick="prevSlide()">&#10094;</div>
+                <div class="slider-button next" onclick="nextSlide()">&#10095;</div>
+            </div>
+             <!--Animacion de Slider-->
+            <script>
+                var slider = document.querySelector('.slider');
+                var images = document.querySelectorAll('.slider img');
+                var currentIndex = 0;
+                var interval;
+                function startCarousel() {
+                    interval = setInterval(nextSlide, 3000); // Cambia de imagen cada 3 segundos (ajustable)
+                }
+        
+                function stopCarousel() {
+                    clearInterval(interval);
+                }
+        
+                function nextSlide() {
+                    currentIndex++;
+                    if (currentIndex >= images.length) {
+                        currentIndex = 0;
+                    }
+                    updateSlider();
+                }
+        
+                function prevSlide() {
+                    currentIndex--;
+                    if (currentIndex < 0) {
+                        currentIndex = images.length - 1;
+                    }
+                    updateSlider();
+                }
+        
+                function updateSlider() {
+                    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+                slider.addEventListener('mouseover', stopCarousel);
+                slider.addEventListener('mouseout', startCarousel);
+                startCarousel();
+            </script>
+        </section>
+
+           <!--redes-->
+        <section class="dos">
+           
+            <p>Seguinos en facebook <a href="https://www.facebook.com/edisk.oficial">Aquí</a></p>
+        </section>
+           <!--Lista--> 
+        <section class="tres">
+           <div>
+                <ul>
+                    <li>Quienes somos</li>
+                    <li>Trabajos realizados</li>
+                    <li>Realizar un pedido</li>
+                    <li>Contacto</li>
+                    <li>Preguntas frecuentes</li>
+                </ul>
+            </div> 
+        </section>
+        <section class="cuatro">
+            <div class="contenedor">
+                <div class="column"> columna 1 </div>
+                <div class="column"> columna 2 </div>
+                <div class="column"> columna 3 </div>
+            </div>
+        </section>
+        <section class="cinco">
+         <!--formulario de contacto-->
+            <form action="" method="">
+            <fieldset>
+                <h2>Dejanos tu mensaje! </h2>
+                <label for="Nombre"> Nombre: </label>
+                <input type="text" name="nombre" id="nombre"/>
+                <label for="Apellido"> Apellido: </label>
+                <input type="text" name="Apellido" id="Apellido"/><br>
+                <br>
+                <label for="Email"> Email:     </label>
+                <input type="text" name="Email" id="Email"/><br>
+                <br>
+                <label for="Contacto"> Nro. de Contacto: </label>
+                <input type="text" name="contacto" id="contacto"/>
+                </form><br>
+                <br>
+                <textarea name="mensaje" id="mensaje" cols="65" rows="10"></textarea>
+                <br>
+                <button> Enviar </button>
+                <br>
+            </fieldset>
+        </section>
+        <footer>  <!--Todavia me falta completarlo-->
+            <fieldset>
+                <div id="footer"> 
+
+                </div>
+            </fieldset>
+        </footer>
+    
+    </body>
+</html> 
